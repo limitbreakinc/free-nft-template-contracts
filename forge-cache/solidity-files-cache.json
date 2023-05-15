@@ -1119,8 +1119,8 @@
       }
     },
     "lib/creator-token-contracts/contracts/programmable-royalties/MinterCreatorSharedRoyalties.sol": {
-      "lastModificationDate": 1683932229848,
-      "contentHash": "688425808d3b62bc7e39f864d24c62cf",
+      "lastModificationDate": 1684172442943,
+      "contentHash": "85e892db910f88f9ac8187d543a0142d",
       "sourceName": "lib/creator-token-contracts/contracts/programmable-royalties/MinterCreatorSharedRoyalties.sol",
       "solcConfig": {
         "settings": {
@@ -1152,12 +1152,10 @@
       },
       "imports": [
         "lib/creator-token-contracts/contracts/access/OwnablePermissions.sol",
-        "lib/openzeppelin-contracts/contracts/finance/PaymentSplitter.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/helpers/IPaymentSplitterInitializable.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC2981.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Clones.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
         "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
         "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
@@ -1224,6 +1222,48 @@
         },
         "MutableMinterRoyaltiesInitializable": {
           "0.8.9+commit.e5eed63a.Darwin.appleclang": "MutableMinterRoyalties.sol/MutableMinterRoyaltiesInitializable.json"
+        }
+      }
+    },
+    "lib/creator-token-contracts/contracts/programmable-royalties/helpers/IPaymentSplitterInitializable.sol": {
+      "lastModificationDate": 1684172442943,
+      "contentHash": "193567d00d8e8774a3ef3970b5bc21f9",
+      "sourceName": "lib/creator-token-contracts/contracts/programmable-royalties/helpers/IPaymentSplitterInitializable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionRequirement": "^0.8.4",
+      "artifacts": {
+        "IPaymentSplitterInitializable": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "IPaymentSplitterInitializable.sol/IPaymentSplitterInitializable.json"
         }
       }
     },
@@ -1508,52 +1548,6 @@
         }
       }
     },
-    "lib/openzeppelin-contracts/contracts/finance/PaymentSplitter.sol": {
-      "lastModificationDate": 1683932367460,
-      "contentHash": "4aa680e9153bff0937dba5ff34fd693e",
-      "sourceName": "lib/openzeppelin-contracts/contracts/finance/PaymentSplitter.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs",
-            "appendCBOR": true
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Context.sol"
-      ],
-      "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "PaymentSplitter": {
-          "0.8.9+commit.e5eed63a.Darwin.appleclang": "PaymentSplitter.sol/PaymentSplitter.json"
-        }
-      }
-    },
     "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol": {
       "lastModificationDate": 1683932367463,
       "contentHash": "ee9624272968c23d93d4c2e39f06e6e2",
@@ -1592,7 +1586,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "IERC165": {
-          "0.8.9+commit.e5eed63a.Darwin.appleclang": "interfaces/IERC165.sol/IERC165.json"
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "IERC165.sol/IERC165.json"
         }
       }
     },
@@ -1638,6 +1632,46 @@
         }
       }
     },
+    "lib/openzeppelin-contracts/contracts/proxy/Clones.sol": {
+      "lastModificationDate": 1683932367474,
+      "contentHash": "619ebe6b259dbac8eddc7df5a8a380c1",
+      "sourceName": "lib/openzeppelin-contracts/contracts/proxy/Clones.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "Clones": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Clones.sol/Clones.json"
+        }
+      }
+    },
     "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
       "lastModificationDate": 1683932367478,
       "contentHash": "d3f395dc838796643e7a71419900ab23",
@@ -1675,90 +1709,6 @@
       "artifacts": {
         "IERC20": {
           "0.8.9+commit.e5eed63a.Darwin.appleclang": "IERC20.sol/IERC20.json"
-        }
-      }
-    },
-    "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol": {
-      "lastModificationDate": 1683932367480,
-      "contentHash": "e2c0f4f502e2fe75be0585737839ba9b",
-      "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs",
-            "appendCBOR": true
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "IERC20Permit": {
-          "0.8.9+commit.e5eed63a.Darwin.appleclang": "IERC20Permit.sol/IERC20Permit.json"
-        }
-      }
-    },
-    "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol": {
-      "lastModificationDate": 1683932367481,
-      "contentHash": "e8050eb2193adf2919db8192f4feb5cb",
-      "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs",
-            "appendCBOR": true
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Address.sol"
-      ],
-      "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "SafeERC20": {
-          "0.8.9+commit.e5eed63a.Darwin.appleclang": "SafeERC20.sol/SafeERC20.json"
         }
       }
     },
@@ -2307,6 +2257,225 @@
         }
       }
     },
+    "src/Size.sol": {
+      "lastModificationDate": 1684176791548,
+      "contentHash": "a1c19aefe88c95ad2fa3ed0fb86d321f",
+      "sourceName": "src/Size.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/creator-token-contracts/contracts/access/OwnableBasic.sol",
+        "lib/creator-token-contracts/contracts/access/OwnableInitializable.sol",
+        "lib/creator-token-contracts/contracts/access/OwnablePermissions.sol",
+        "lib/creator-token-contracts/contracts/adventures/AdventureERC721.sol",
+        "lib/creator-token-contracts/contracts/adventures/AdventureWhitelist.sol",
+        "lib/creator-token-contracts/contracts/adventures/IAdventure.sol",
+        "lib/creator-token-contracts/contracts/adventures/IAdventurous.sol",
+        "lib/creator-token-contracts/contracts/adventures/Quest.sol",
+        "lib/creator-token-contracts/contracts/erc721c/AdventureERC721C.sol",
+        "lib/creator-token-contracts/contracts/erc721c/ERC721C.sol",
+        "lib/creator-token-contracts/contracts/interfaces/ICreatorToken.sol",
+        "lib/creator-token-contracts/contracts/interfaces/ICreatorTokenTransferValidator.sol",
+        "lib/creator-token-contracts/contracts/interfaces/IEOARegistry.sol",
+        "lib/creator-token-contracts/contracts/interfaces/ITransferSecurityRegistry.sol",
+        "lib/creator-token-contracts/contracts/interfaces/ITransferValidator.sol",
+        "lib/creator-token-contracts/contracts/minting/AirdropMint.sol",
+        "lib/creator-token-contracts/contracts/minting/ClaimPeriodBase.sol",
+        "lib/creator-token-contracts/contracts/minting/MaxSupply.sol",
+        "lib/creator-token-contracts/contracts/minting/MerkleWhitelistMint.sol",
+        "lib/creator-token-contracts/contracts/minting/MintTokenBase.sol",
+        "lib/creator-token-contracts/contracts/minting/SequentialMintBase.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/BasicRoyalties.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/ImmutableMinterRoyalties.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/MinterCreatorSharedRoyalties.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/MutableMinterRoyalties.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/helpers/IPaymentSplitterInitializable.sol",
+        "lib/creator-token-contracts/contracts/token/erc721/ERC721OpenZeppelin.sol",
+        "lib/creator-token-contracts/contracts/token/erc721/MetadataURI.sol",
+        "lib/creator-token-contracts/contracts/utils/CreatorTokenBase.sol",
+        "lib/creator-token-contracts/contracts/utils/TransferPolicy.sol",
+        "lib/creator-token-contracts/contracts/utils/TransferValidation.sol",
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/IERC2981.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Clones.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/common/ERC2981.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "src/templates/cloneable/adventure-erc721c/AdventureERC721CMetadataInitializable.sol",
+        "src/templates/cloneable/adventure-erc721c/airdrop/basic-royalties/AdventureFreeNFT.sol",
+        "src/templates/cloneable/adventure-erc721c/airdrop/immutable-minter-royalties/AdventureFreeNFT.sol",
+        "src/templates/cloneable/adventure-erc721c/airdrop/mutable-minter-royalties/AdventureFreeNFT.sol",
+        "src/templates/cloneable/adventure-erc721c/airdrop/shared-royalties/AdventureFreeNFT.sol",
+        "src/templates/cloneable/adventure-erc721c/merkle/basic-royalties/AdventureFreeNFT.sol",
+        "src/templates/cloneable/adventure-erc721c/merkle/immutable-minter-royalties/AdventureFreeNFT.sol",
+        "src/templates/cloneable/adventure-erc721c/merkle/mutable-minter-royalties/AdventureFreeNFT.sol",
+        "src/templates/cloneable/adventure-erc721c/merkle/shared-royalties/AdventureFreeNFT.sol",
+        "src/templates/cloneable/erc721c/ERC721CMetadataInitializable.sol",
+        "src/templates/cloneable/erc721c/airdrop/basic-royalties/FreeNFT.sol",
+        "src/templates/cloneable/erc721c/airdrop/immutable-minter-royalties/FreeNFT.sol",
+        "src/templates/cloneable/erc721c/airdrop/mutable-minter-royalties/FreeNFT.sol",
+        "src/templates/cloneable/erc721c/airdrop/shared-royalties/FreeNFT.sol",
+        "src/templates/cloneable/erc721c/merkle/basic-royalties/FreeNFT.sol",
+        "src/templates/cloneable/erc721c/merkle/immutable-minter-royalties/FreeNFT.sol",
+        "src/templates/cloneable/erc721c/merkle/mutable-minter-royalties/FreeNFT.sol",
+        "src/templates/cloneable/erc721c/merkle/shared-royalties/FreeNFT.sol",
+        "src/templates/constructable/adventure-erc721c/AdventureERC721CMetadata.sol",
+        "src/templates/constructable/adventure-erc721c/airdrop/basic-royalties/AdventureFreeNFT.sol",
+        "src/templates/constructable/adventure-erc721c/airdrop/immutable-minter-royalties/AdventureFreeNFT.sol",
+        "src/templates/constructable/adventure-erc721c/airdrop/mutable-minter-royalties/AdventureFreeNFT.sol",
+        "src/templates/constructable/adventure-erc721c/airdrop/shared-royalties/AdventureFreeNFT.sol",
+        "src/templates/constructable/adventure-erc721c/merkle/basic-royalties/AdventureFreeNFT.sol",
+        "src/templates/constructable/adventure-erc721c/merkle/immutable-minter-royalties/AdventureFreeNFT.sol",
+        "src/templates/constructable/adventure-erc721c/merkle/mutable-minter-royalties/AdventureFreeNFT.sol",
+        "src/templates/constructable/adventure-erc721c/merkle/shared-royalties/AdventureFreeNFT.sol",
+        "src/templates/constructable/erc721c/ERC721CMetadata.sol",
+        "src/templates/constructable/erc721c/airdrop/basic-royalties/FreeNFT.sol",
+        "src/templates/constructable/erc721c/airdrop/immutable-minter-royalties/FreeNFT.sol",
+        "src/templates/constructable/erc721c/airdrop/mutable-minter-royalties/FreeNFT.sol",
+        "src/templates/constructable/erc721c/airdrop/shared-royalties/FreeNFT.sol",
+        "src/templates/constructable/erc721c/merkle/basic-royalties/FreeNFT.sol",
+        "src/templates/constructable/erc721c/merkle/immutable-minter-royalties/FreeNFT.sol",
+        "src/templates/constructable/erc721c/merkle/mutable-minter-royalties/FreeNFT.sol",
+        "src/templates/constructable/erc721c/merkle/shared-royalties/FreeNFT.sol"
+      ],
+      "versionRequirement": "=0.8.9",
+      "artifacts": {
+        "Size_Cloneable_AdventureFreeNFT_Airdrop_BasicRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_AdventureFreeNFT_Airdrop_BasicRoyalties.json"
+        },
+        "Size_Cloneable_AdventureFreeNFT_Airdrop_ImmutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_AdventureFreeNFT_Airdrop_ImmutableMinterRoyalties.json"
+        },
+        "Size_Cloneable_AdventureFreeNFT_Airdrop_MutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_AdventureFreeNFT_Airdrop_MutableMinterRoyalties.json"
+        },
+        "Size_Cloneable_AdventureFreeNFT_Airdrop_SharedRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_AdventureFreeNFT_Airdrop_SharedRoyalties.json"
+        },
+        "Size_Cloneable_AdventureFreeNFT_Merkle_BasicRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_AdventureFreeNFT_Merkle_BasicRoyalties.json"
+        },
+        "Size_Cloneable_AdventureFreeNFT_Merkle_ImmutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_AdventureFreeNFT_Merkle_ImmutableMinterRoyalties.json"
+        },
+        "Size_Cloneable_AdventureFreeNFT_Merkle_MutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_AdventureFreeNFT_Merkle_MutableMinterRoyalties.json"
+        },
+        "Size_Cloneable_AdventureFreeNFT_Merkle_SharedRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_AdventureFreeNFT_Merkle_SharedRoyalties.json"
+        },
+        "Size_Cloneable_FreeNFT_Airdrop_BasicRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_FreeNFT_Airdrop_BasicRoyalties.json"
+        },
+        "Size_Cloneable_FreeNFT_Airdrop_ImmutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_FreeNFT_Airdrop_ImmutableMinterRoyalties.json"
+        },
+        "Size_Cloneable_FreeNFT_Airdrop_MutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_FreeNFT_Airdrop_MutableMinterRoyalties.json"
+        },
+        "Size_Cloneable_FreeNFT_Airdrop_SharedRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_FreeNFT_Airdrop_SharedRoyalties.json"
+        },
+        "Size_Cloneable_FreeNFT_Merkle_BasicRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_FreeNFT_Merkle_BasicRoyalties.json"
+        },
+        "Size_Cloneable_FreeNFT_Merkle_ImmutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_FreeNFT_Merkle_ImmutableMinterRoyalties.json"
+        },
+        "Size_Cloneable_FreeNFT_Merkle_MutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_FreeNFT_Merkle_MutableMinterRoyalties.json"
+        },
+        "Size_Cloneable_FreeNFT_Merkle_SharedRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Cloneable_FreeNFT_Merkle_SharedRoyalties.json"
+        },
+        "Size_Constructable_AdventureFreeNFT_Airdrop_BasicRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_AdventureFreeNFT_Airdrop_BasicRoyalties.json"
+        },
+        "Size_Constructable_AdventureFreeNFT_Airdrop_ImmutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_AdventureFreeNFT_Airdrop_ImmutableMinterRoyalties.json"
+        },
+        "Size_Constructable_AdventureFreeNFT_Airdrop_MutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_AdventureFreeNFT_Airdrop_MutableMinterRoyalties.json"
+        },
+        "Size_Constructable_AdventureFreeNFT_Airdrop_SharedRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_AdventureFreeNFT_Airdrop_SharedRoyalties.json"
+        },
+        "Size_Constructable_AdventureFreeNFT_Merkle_BasicRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_AdventureFreeNFT_Merkle_BasicRoyalties.json"
+        },
+        "Size_Constructable_AdventureFreeNFT_Merkle_ImmutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_AdventureFreeNFT_Merkle_ImmutableMinterRoyalties.json"
+        },
+        "Size_Constructable_AdventureFreeNFT_Merkle_MutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_AdventureFreeNFT_Merkle_MutableMinterRoyalties.json"
+        },
+        "Size_Constructable_AdventureFreeNFT_Merkle_SharedRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_AdventureFreeNFT_Merkle_SharedRoyalties.json"
+        },
+        "Size_Constructable_FreeNFT_Airdrop_BasicRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_FreeNFT_Airdrop_BasicRoyalties.json"
+        },
+        "Size_Constructable_FreeNFT_Airdrop_ImmutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_FreeNFT_Airdrop_ImmutableMinterRoyalties.json"
+        },
+        "Size_Constructable_FreeNFT_Airdrop_MutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_FreeNFT_Airdrop_MutableMinterRoyalties.json"
+        },
+        "Size_Constructable_FreeNFT_Airdrop_SharedRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_FreeNFT_Airdrop_SharedRoyalties.json"
+        },
+        "Size_Constructable_FreeNFT_Merkle_BasicRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_FreeNFT_Merkle_BasicRoyalties.json"
+        },
+        "Size_Constructable_FreeNFT_Merkle_ImmutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_FreeNFT_Merkle_ImmutableMinterRoyalties.json"
+        },
+        "Size_Constructable_FreeNFT_Merkle_MutableMinterRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_FreeNFT_Merkle_MutableMinterRoyalties.json"
+        },
+        "Size_Constructable_FreeNFT_Merkle_SharedRoyalties": {
+          "0.8.9+commit.e5eed63a.Darwin.appleclang": "Size.sol/Size_Constructable_FreeNFT_Merkle_SharedRoyalties.json"
+        }
+      }
+    },
     "src/templates/cloneable/adventure-erc721c/AdventureERC721CMetadataInitializable.sol": {
       "lastModificationDate": 1683932836323,
       "contentHash": "25b18af2d894c72aa9cf1068c69ecbcd",
@@ -2380,7 +2549,7 @@
       }
     },
     "src/templates/cloneable/adventure-erc721c/airdrop/basic-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683932723562,
+      "lastModificationDate": 1683936036275,
       "contentHash": "3a167fa80c33b6d2975f8428396f1523",
       "sourceName": "src/templates/cloneable/adventure-erc721c/airdrop/basic-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -2460,7 +2629,7 @@
       }
     },
     "src/templates/cloneable/adventure-erc721c/airdrop/immutable-minter-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683932738448,
+      "lastModificationDate": 1683936036276,
       "contentHash": "190a05ababc0de97a6bedadd8eb1d881",
       "sourceName": "src/templates/cloneable/adventure-erc721c/airdrop/immutable-minter-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -2539,7 +2708,7 @@
       }
     },
     "src/templates/cloneable/adventure-erc721c/airdrop/mutable-minter-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683932750006,
+      "lastModificationDate": 1683935885369,
       "contentHash": "3a08e552c008f90686f29f58ca01fb74",
       "sourceName": "src/templates/cloneable/adventure-erc721c/airdrop/mutable-minter-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -2618,7 +2787,7 @@
       }
     },
     "src/templates/cloneable/adventure-erc721c/airdrop/shared-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683932760031,
+      "lastModificationDate": 1683936036276,
       "contentHash": "6419bb171a44f21dc172b2485edf7f0c",
       "sourceName": "src/templates/cloneable/adventure-erc721c/airdrop/shared-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -2668,18 +2837,17 @@
         "lib/creator-token-contracts/contracts/minting/MintTokenBase.sol",
         "lib/creator-token-contracts/contracts/minting/SequentialMintBase.sol",
         "lib/creator-token-contracts/contracts/programmable-royalties/MinterCreatorSharedRoyalties.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/helpers/IPaymentSplitterInitializable.sol",
         "lib/creator-token-contracts/contracts/token/erc721/ERC721OpenZeppelin.sol",
         "lib/creator-token-contracts/contracts/token/erc721/MetadataURI.sol",
         "lib/creator-token-contracts/contracts/utils/CreatorTokenBase.sol",
         "lib/creator-token-contracts/contracts/utils/TransferPolicy.sol",
         "lib/creator-token-contracts/contracts/utils/TransferValidation.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/finance/PaymentSplitter.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC2981.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Clones.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
@@ -2701,7 +2869,7 @@
       }
     },
     "src/templates/cloneable/adventure-erc721c/merkle/basic-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683932794778,
+      "lastModificationDate": 1683936036277,
       "contentHash": "54168c21ec9bc9777c2e7b6dca280b15",
       "sourceName": "src/templates/cloneable/adventure-erc721c/merkle/basic-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -2783,7 +2951,7 @@
       }
     },
     "src/templates/cloneable/adventure-erc721c/merkle/immutable-minter-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683932803753,
+      "lastModificationDate": 1683936036277,
       "contentHash": "9546398a63b5879299802c277c56963a",
       "sourceName": "src/templates/cloneable/adventure-erc721c/merkle/immutable-minter-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -2864,7 +3032,7 @@
       }
     },
     "src/templates/cloneable/adventure-erc721c/merkle/mutable-minter-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683932812105,
+      "lastModificationDate": 1683936036278,
       "contentHash": "f55aea0333b86735bec24977a372c869",
       "sourceName": "src/templates/cloneable/adventure-erc721c/merkle/mutable-minter-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -2945,7 +3113,7 @@
       }
     },
     "src/templates/cloneable/adventure-erc721c/merkle/shared-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683932821562,
+      "lastModificationDate": 1683936036278,
       "contentHash": "6f95780ced3c85a4df7d6fb2db2190c5",
       "sourceName": "src/templates/cloneable/adventure-erc721c/merkle/shared-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -2996,18 +3164,17 @@
         "lib/creator-token-contracts/contracts/minting/MintTokenBase.sol",
         "lib/creator-token-contracts/contracts/minting/SequentialMintBase.sol",
         "lib/creator-token-contracts/contracts/programmable-royalties/MinterCreatorSharedRoyalties.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/helpers/IPaymentSplitterInitializable.sol",
         "lib/creator-token-contracts/contracts/token/erc721/ERC721OpenZeppelin.sol",
         "lib/creator-token-contracts/contracts/token/erc721/MetadataURI.sol",
         "lib/creator-token-contracts/contracts/utils/CreatorTokenBase.sol",
         "lib/creator-token-contracts/contracts/utils/TransferPolicy.sol",
         "lib/creator-token-contracts/contracts/utils/TransferValidation.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/finance/PaymentSplitter.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC2981.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Clones.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
@@ -3030,7 +3197,7 @@
       }
     },
     "src/templates/cloneable/erc721c/ERC721CMetadataInitializable.sol": {
-      "lastModificationDate": 1683932939379,
+      "lastModificationDate": 1683936036279,
       "contentHash": "d772af31cc94260747c9533e77a1fa89",
       "sourceName": "src/templates/cloneable/erc721c/ERC721CMetadataInitializable.sol",
       "solcConfig": {
@@ -3097,7 +3264,7 @@
       }
     },
     "src/templates/cloneable/erc721c/airdrop/basic-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683932857531,
+      "lastModificationDate": 1683936036279,
       "contentHash": "1298024d9bd383dd3b0fe1f1bbe49cc4",
       "sourceName": "src/templates/cloneable/erc721c/airdrop/basic-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -3172,7 +3339,7 @@
       }
     },
     "src/templates/cloneable/erc721c/airdrop/immutable-minter-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683932867563,
+      "lastModificationDate": 1683936036279,
       "contentHash": "ba02b0684520bf0da8a3834e8b4348dc",
       "sourceName": "src/templates/cloneable/erc721c/airdrop/immutable-minter-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -3246,7 +3413,7 @@
       }
     },
     "src/templates/cloneable/erc721c/airdrop/mutable-minter-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683932877923,
+      "lastModificationDate": 1683936036279,
       "contentHash": "ee548745806581eb355ce9012fab240f",
       "sourceName": "src/templates/cloneable/erc721c/airdrop/mutable-minter-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -3320,7 +3487,7 @@
       }
     },
     "src/templates/cloneable/erc721c/airdrop/shared-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683932888994,
+      "lastModificationDate": 1683936036280,
       "contentHash": "88004a17432d6404d6678445e2f6d76c",
       "sourceName": "src/templates/cloneable/erc721c/airdrop/shared-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -3365,18 +3532,17 @@
         "lib/creator-token-contracts/contracts/minting/MintTokenBase.sol",
         "lib/creator-token-contracts/contracts/minting/SequentialMintBase.sol",
         "lib/creator-token-contracts/contracts/programmable-royalties/MinterCreatorSharedRoyalties.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/helpers/IPaymentSplitterInitializable.sol",
         "lib/creator-token-contracts/contracts/token/erc721/ERC721OpenZeppelin.sol",
         "lib/creator-token-contracts/contracts/token/erc721/MetadataURI.sol",
         "lib/creator-token-contracts/contracts/utils/CreatorTokenBase.sol",
         "lib/creator-token-contracts/contracts/utils/TransferPolicy.sol",
         "lib/creator-token-contracts/contracts/utils/TransferValidation.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/finance/PaymentSplitter.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC2981.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Clones.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
@@ -3398,7 +3564,7 @@
       }
     },
     "src/templates/cloneable/erc721c/merkle/basic-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683932904563,
+      "lastModificationDate": 1683936036280,
       "contentHash": "2006c356d8e8137ceaeeb059877ebb24",
       "sourceName": "src/templates/cloneable/erc721c/merkle/basic-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -3475,7 +3641,7 @@
       }
     },
     "src/templates/cloneable/erc721c/merkle/immutable-minter-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683932913830,
+      "lastModificationDate": 1683936036280,
       "contentHash": "fde8ea40a1126b4d5cfce3db52141867",
       "sourceName": "src/templates/cloneable/erc721c/merkle/immutable-minter-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -3551,7 +3717,7 @@
       }
     },
     "src/templates/cloneable/erc721c/merkle/mutable-minter-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683932922899,
+      "lastModificationDate": 1683936036280,
       "contentHash": "04974af45c11e2bc435e6a8b9b81c885",
       "sourceName": "src/templates/cloneable/erc721c/merkle/mutable-minter-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -3627,7 +3793,7 @@
       }
     },
     "src/templates/cloneable/erc721c/merkle/shared-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683932931017,
+      "lastModificationDate": 1683936036281,
       "contentHash": "569329f6a71200bbd397343d50bbfd3b",
       "sourceName": "src/templates/cloneable/erc721c/merkle/shared-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -3673,18 +3839,17 @@
         "lib/creator-token-contracts/contracts/minting/MintTokenBase.sol",
         "lib/creator-token-contracts/contracts/minting/SequentialMintBase.sol",
         "lib/creator-token-contracts/contracts/programmable-royalties/MinterCreatorSharedRoyalties.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/helpers/IPaymentSplitterInitializable.sol",
         "lib/creator-token-contracts/contracts/token/erc721/ERC721OpenZeppelin.sol",
         "lib/creator-token-contracts/contracts/token/erc721/MetadataURI.sol",
         "lib/creator-token-contracts/contracts/utils/CreatorTokenBase.sol",
         "lib/creator-token-contracts/contracts/utils/TransferPolicy.sol",
         "lib/creator-token-contracts/contracts/utils/TransferValidation.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/finance/PaymentSplitter.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC2981.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Clones.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
@@ -3707,7 +3872,7 @@
       }
     },
     "src/templates/constructable/adventure-erc721c/AdventureERC721CMetadata.sol": {
-      "lastModificationDate": 1683933050181,
+      "lastModificationDate": 1683936036281,
       "contentHash": "805b87e183b32c085d7be415a771c5a9",
       "sourceName": "src/templates/constructable/adventure-erc721c/AdventureERC721CMetadata.sol",
       "solcConfig": {
@@ -3779,7 +3944,7 @@
       }
     },
     "src/templates/constructable/adventure-erc721c/airdrop/basic-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683932968180,
+      "lastModificationDate": 1683936036282,
       "contentHash": "6b9ff39b9935f56714e80de4d818d1ed",
       "sourceName": "src/templates/constructable/adventure-erc721c/airdrop/basic-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -3859,7 +4024,7 @@
       }
     },
     "src/templates/constructable/adventure-erc721c/airdrop/immutable-minter-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683932976891,
+      "lastModificationDate": 1683936036282,
       "contentHash": "2edb75a5167a2a634d2fd78ee01bd25e",
       "sourceName": "src/templates/constructable/adventure-erc721c/airdrop/immutable-minter-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -3938,7 +4103,7 @@
       }
     },
     "src/templates/constructable/adventure-erc721c/airdrop/mutable-minter-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683932985373,
+      "lastModificationDate": 1683936036282,
       "contentHash": "de52164a07400ca732f0b02261129fea",
       "sourceName": "src/templates/constructable/adventure-erc721c/airdrop/mutable-minter-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -4017,8 +4182,8 @@
       }
     },
     "src/templates/constructable/adventure-erc721c/airdrop/shared-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683932995428,
-      "contentHash": "d7ceaf62273ddf4eeb9480a19febb569",
+      "lastModificationDate": 1684172656177,
+      "contentHash": "6a8aabae2bcf31f639a82e6a679b8713",
       "sourceName": "src/templates/constructable/adventure-erc721c/airdrop/shared-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
         "settings": {
@@ -4067,18 +4232,17 @@
         "lib/creator-token-contracts/contracts/minting/MintTokenBase.sol",
         "lib/creator-token-contracts/contracts/minting/SequentialMintBase.sol",
         "lib/creator-token-contracts/contracts/programmable-royalties/MinterCreatorSharedRoyalties.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/helpers/IPaymentSplitterInitializable.sol",
         "lib/creator-token-contracts/contracts/token/erc721/ERC721OpenZeppelin.sol",
         "lib/creator-token-contracts/contracts/token/erc721/MetadataURI.sol",
         "lib/creator-token-contracts/contracts/utils/CreatorTokenBase.sol",
         "lib/creator-token-contracts/contracts/utils/TransferPolicy.sol",
         "lib/creator-token-contracts/contracts/utils/TransferValidation.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/finance/PaymentSplitter.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC2981.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Clones.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
@@ -4100,7 +4264,7 @@
       }
     },
     "src/templates/constructable/adventure-erc721c/merkle/basic-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683933005220,
+      "lastModificationDate": 1683936036283,
       "contentHash": "eaa859506e2cfc06d2a4bf2852560c9a",
       "sourceName": "src/templates/constructable/adventure-erc721c/merkle/basic-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -4182,7 +4346,7 @@
       }
     },
     "src/templates/constructable/adventure-erc721c/merkle/immutable-minter-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683933014885,
+      "lastModificationDate": 1683936036284,
       "contentHash": "7ae4af4071b01b6028b2c868c72a17ac",
       "sourceName": "src/templates/constructable/adventure-erc721c/merkle/immutable-minter-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -4263,7 +4427,7 @@
       }
     },
     "src/templates/constructable/adventure-erc721c/merkle/mutable-minter-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683933032438,
+      "lastModificationDate": 1683936036284,
       "contentHash": "eb9aecde2e66a2219eb4da2f23501369",
       "sourceName": "src/templates/constructable/adventure-erc721c/merkle/mutable-minter-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
@@ -4344,8 +4508,8 @@
       }
     },
     "src/templates/constructable/adventure-erc721c/merkle/shared-royalties/AdventureFreeNFT.sol": {
-      "lastModificationDate": 1683933040981,
-      "contentHash": "9029a3899c5089b8fafa0107773bc930",
+      "lastModificationDate": 1684172862514,
+      "contentHash": "732604a7cfc16e031c17ac5d36796318",
       "sourceName": "src/templates/constructable/adventure-erc721c/merkle/shared-royalties/AdventureFreeNFT.sol",
       "solcConfig": {
         "settings": {
@@ -4395,18 +4559,17 @@
         "lib/creator-token-contracts/contracts/minting/MintTokenBase.sol",
         "lib/creator-token-contracts/contracts/minting/SequentialMintBase.sol",
         "lib/creator-token-contracts/contracts/programmable-royalties/MinterCreatorSharedRoyalties.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/helpers/IPaymentSplitterInitializable.sol",
         "lib/creator-token-contracts/contracts/token/erc721/ERC721OpenZeppelin.sol",
         "lib/creator-token-contracts/contracts/token/erc721/MetadataURI.sol",
         "lib/creator-token-contracts/contracts/utils/CreatorTokenBase.sol",
         "lib/creator-token-contracts/contracts/utils/TransferPolicy.sol",
         "lib/creator-token-contracts/contracts/utils/TransferValidation.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/finance/PaymentSplitter.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC2981.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Clones.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
@@ -4429,7 +4592,7 @@
       }
     },
     "src/templates/constructable/erc721c/ERC721CMetadata.sol": {
-      "lastModificationDate": 1683933065454,
+      "lastModificationDate": 1683936036285,
       "contentHash": "38433c9b585e5b00dc62dbd1ade8ae90",
       "sourceName": "src/templates/constructable/erc721c/ERC721CMetadata.sol",
       "solcConfig": {
@@ -4496,7 +4659,7 @@
       }
     },
     "src/templates/constructable/erc721c/airdrop/basic-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683933075951,
+      "lastModificationDate": 1683936036285,
       "contentHash": "39e8fd362f482d4ecbac70f1851d60e1",
       "sourceName": "src/templates/constructable/erc721c/airdrop/basic-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -4571,7 +4734,7 @@
       }
     },
     "src/templates/constructable/erc721c/airdrop/immutable-minter-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683933084524,
+      "lastModificationDate": 1683936036285,
       "contentHash": "dc29b3b343f58901a830618225a23161",
       "sourceName": "src/templates/constructable/erc721c/airdrop/immutable-minter-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -4645,7 +4808,7 @@
       }
     },
     "src/templates/constructable/erc721c/airdrop/mutable-minter-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683933093804,
+      "lastModificationDate": 1683936036286,
       "contentHash": "41a4318b36d67d0f7dd3d91d0e1500e8",
       "sourceName": "src/templates/constructable/erc721c/airdrop/mutable-minter-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -4719,8 +4882,8 @@
       }
     },
     "src/templates/constructable/erc721c/airdrop/shared-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683933102700,
-      "contentHash": "383dff9212bb2fdc1e4056b25391e857",
+      "lastModificationDate": 1684172613452,
+      "contentHash": "4da712a2b52b1f62b982ace524ccb587",
       "sourceName": "src/templates/constructable/erc721c/airdrop/shared-royalties/FreeNFT.sol",
       "solcConfig": {
         "settings": {
@@ -4764,18 +4927,17 @@
         "lib/creator-token-contracts/contracts/minting/MintTokenBase.sol",
         "lib/creator-token-contracts/contracts/minting/SequentialMintBase.sol",
         "lib/creator-token-contracts/contracts/programmable-royalties/MinterCreatorSharedRoyalties.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/helpers/IPaymentSplitterInitializable.sol",
         "lib/creator-token-contracts/contracts/token/erc721/ERC721OpenZeppelin.sol",
         "lib/creator-token-contracts/contracts/token/erc721/MetadataURI.sol",
         "lib/creator-token-contracts/contracts/utils/CreatorTokenBase.sol",
         "lib/creator-token-contracts/contracts/utils/TransferPolicy.sol",
         "lib/creator-token-contracts/contracts/utils/TransferValidation.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/finance/PaymentSplitter.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC2981.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Clones.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
@@ -4797,7 +4959,7 @@
       }
     },
     "src/templates/constructable/erc721c/merkle/basic-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683933113021,
+      "lastModificationDate": 1683936036286,
       "contentHash": "abd1080459faeec6afd9c9ab9022ac26",
       "sourceName": "src/templates/constructable/erc721c/merkle/basic-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -4874,7 +5036,7 @@
       }
     },
     "src/templates/constructable/erc721c/merkle/immutable-minter-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683933124437,
+      "lastModificationDate": 1683936036287,
       "contentHash": "1221620a05e16b783ea81e5ad4da5607",
       "sourceName": "src/templates/constructable/erc721c/merkle/immutable-minter-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -4950,7 +5112,7 @@
       }
     },
     "src/templates/constructable/erc721c/merkle/mutable-minter-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683933133909,
+      "lastModificationDate": 1683936036287,
       "contentHash": "0414e704c02b2346761b0094b3ff353f",
       "sourceName": "src/templates/constructable/erc721c/merkle/mutable-minter-royalties/FreeNFT.sol",
       "solcConfig": {
@@ -5026,8 +5188,8 @@
       }
     },
     "src/templates/constructable/erc721c/merkle/shared-royalties/FreeNFT.sol": {
-      "lastModificationDate": 1683933142959,
-      "contentHash": "7a6d7afd4bd8be66d6e13e85d73f08fa",
+      "lastModificationDate": 1684172932138,
+      "contentHash": "9199df4ce2ff338d440219d5d84de67c",
       "sourceName": "src/templates/constructable/erc721c/merkle/shared-royalties/FreeNFT.sol",
       "solcConfig": {
         "settings": {
@@ -5072,18 +5234,17 @@
         "lib/creator-token-contracts/contracts/minting/MintTokenBase.sol",
         "lib/creator-token-contracts/contracts/minting/SequentialMintBase.sol",
         "lib/creator-token-contracts/contracts/programmable-royalties/MinterCreatorSharedRoyalties.sol",
+        "lib/creator-token-contracts/contracts/programmable-royalties/helpers/IPaymentSplitterInitializable.sol",
         "lib/creator-token-contracts/contracts/token/erc721/ERC721OpenZeppelin.sol",
         "lib/creator-token-contracts/contracts/token/erc721/MetadataURI.sol",
         "lib/creator-token-contracts/contracts/utils/CreatorTokenBase.sol",
         "lib/creator-token-contracts/contracts/utils/TransferPolicy.sol",
         "lib/creator-token-contracts/contracts/utils/TransferValidation.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/finance/PaymentSplitter.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC2981.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Clones.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
-        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
