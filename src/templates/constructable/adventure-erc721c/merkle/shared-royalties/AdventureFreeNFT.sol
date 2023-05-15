@@ -15,6 +15,12 @@ contract AdventureFreeNFT is
         uint256 minterShares;
         uint256 creatorShares;
         address creator;
+        address paymentSplitterReference;
+    }
+
+    struct MerkleMintConfiguration {
+        uint256 maxMerkleMints;
+        uint256 permittedNumberOfMerkleRootChanges;
     }
 
     constructor(
@@ -23,17 +29,19 @@ contract AdventureFreeNFT is
         uint256 maxSimultaneousQuests_, 
         uint256 maxSupply_, 
         uint256 maxOwnerMints_,
-        uint256 maxMerkleMints_, 
-        uint256 permittedNumberOfMerkleRootChanges_,
+        MerkleMintConfiguration memory merkleMintConfiguration_,
         SharedRoyaltyConfiguration memory sharedRoyaltyConfiguration_)
     AdventureERC721CMetadata(name_, symbol_, maxSimultaneousQuests_)
     MaxSupply(maxSupply_, maxOwnerMints_)
-    MerkleWhitelistMint(maxMerkleMints_, permittedNumberOfMerkleRootChanges_) 
+    MerkleWhitelistMint(
+        merkleMintConfiguration_.maxMerkleMints, 
+        merkleMintConfiguration_.permittedNumberOfMerkleRootChanges) 
     MinterCreatorSharedRoyalties(
         sharedRoyaltyConfiguration_.royaltyFeeNumerator, 
         sharedRoyaltyConfiguration_.minterShares, 
         sharedRoyaltyConfiguration_.creatorShares, 
-        sharedRoyaltyConfiguration_.creator) {}
+        sharedRoyaltyConfiguration_.creator,
+        sharedRoyaltyConfiguration_.paymentSplitterReference) {}
 
     function supportsInterface(bytes4 interfaceId) public view virtual override(AdventureERC721C, MinterCreatorSharedRoyaltiesBase) returns (bool) {
         return super.supportsInterface(interfaceId);

@@ -15,6 +15,7 @@ contract AdventureFreeNFT is
         uint256 minterShares;
         uint256 creatorShares;
         address creator;
+        address paymentSplitterReference;
     }
 
     constructor(
@@ -32,7 +33,8 @@ contract AdventureFreeNFT is
         sharedRoyaltyConfiguration_.royaltyFeeNumerator, 
         sharedRoyaltyConfiguration_.minterShares, 
         sharedRoyaltyConfiguration_.creatorShares, 
-        sharedRoyaltyConfiguration_.creator) {}
+        sharedRoyaltyConfiguration_.creator,
+        sharedRoyaltyConfiguration_.paymentSplitterReference) {}
 
     function supportsInterface(bytes4 interfaceId) public view virtual override(AdventureERC721C, MinterCreatorSharedRoyaltiesBase) returns (bool) {
         return super.supportsInterface(interfaceId);

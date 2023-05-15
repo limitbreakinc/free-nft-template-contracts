@@ -15,6 +15,12 @@ contract FreeNFT is
         uint256 minterShares;
         uint256 creatorShares;
         address creator;
+        address paymentSplitterReference;
+    }
+
+    struct MerkleMintConfiguration {
+        uint256 maxMerkleMints;
+        uint256 permittedNumberOfMerkleRootChanges;
     }
 
     constructor(
@@ -22,17 +28,19 @@ contract FreeNFT is
         string memory symbol_,
         uint256 maxSupply_, 
         uint256 maxOwnerMints_,
-        uint256 maxMerkleMints_, 
-        uint256 permittedNumberOfMerkleRootChanges_,
+        MerkleMintConfiguration memory merkleMintConfiguration_,
         SharedRoyaltyConfiguration memory sharedRoyaltyConfiguration_)
     ERC721CMetadata(name_, symbol_)
     MaxSupply(maxSupply_, maxOwnerMints_)
-    MerkleWhitelistMint(maxMerkleMints_, permittedNumberOfMerkleRootChanges_) 
+    MerkleWhitelistMint(
+        merkleMintConfiguration_.maxMerkleMints, 
+        merkleMintConfiguration_.permittedNumberOfMerkleRootChanges) 
     MinterCreatorSharedRoyalties(
         sharedRoyaltyConfiguration_.royaltyFeeNumerator, 
         sharedRoyaltyConfiguration_.minterShares, 
         sharedRoyaltyConfiguration_.creatorShares, 
-        sharedRoyaltyConfiguration_.creator) {}
+        sharedRoyaltyConfiguration_.creator,
+        sharedRoyaltyConfiguration_.paymentSplitterReference) {}
 
     function supportsInterface(bytes4 interfaceId) public view virtual override(ERC721C, MinterCreatorSharedRoyaltiesBase) returns (bool) {
         return super.supportsInterface(interfaceId);
