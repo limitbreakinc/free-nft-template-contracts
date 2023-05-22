@@ -1,0 +1,5 @@
+ds-test/=lib/forge-std/lib/ds-test/src/
+forge-std/=lib/forge-std/src/
+erc721a/=lib/erc721a/
+@openzeppelin/=lib/openzeppelin-contracts/
+@limitbreak/creator-token-contracts/=lib/creator-token-contracts/
