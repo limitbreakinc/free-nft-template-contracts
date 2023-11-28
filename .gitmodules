@@ -7,3 +7,6 @@
 [submodule "lib/erc721a"]
 	path = lib/erc721a
 	url = https://github.com/chiru-labs/ERC721A.git
+[submodule "lib/creator-token-standards"]
+	path = lib/creator-token-standards
+	url = https://github.com/limitbreakinc/creator-token-standards
