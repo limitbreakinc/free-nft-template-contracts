@@ -2,8 +2,8 @@
 pragma solidity 0.8.9;
 
 import "../../AdventureERC721CMetadata.sol";
-import "@limitbreak/creator-token-contracts/contracts/minting/MerkleWhitelistMint.sol";
-import "@limitbreak/creator-token-contracts/contracts/programmable-royalties/BasicRoyalties.sol";
+import "@limitbreak/creator-token-standards/minting/MerkleWhitelistMint.sol";
+import "@limitbreak/creator-token-standards/programmable-royalties/BasicRoyalties.sol";
 
 contract NFT is 
     AdventureERC721CMetadata, 

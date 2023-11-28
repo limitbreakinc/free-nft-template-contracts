@@ -2,8 +2,8 @@
 pragma solidity 0.8.9;
 
 import "../../ERC721CMetadata.sol";
-import "@limitbreak/creator-token-contracts/contracts/minting/MerkleWhitelistMint.sol";
-import "@limitbreak/creator-token-contracts/contracts/programmable-royalties/MutableMinterRoyalties.sol";
+import "@limitbreak/creator-token-standards/minting/MerkleWhitelistMint.sol";
+import "@limitbreak/creator-token-standards/programmable-royalties/MutableMinterRoyalties.sol";
 
 contract NFT is 
     ERC721CMetadata, 

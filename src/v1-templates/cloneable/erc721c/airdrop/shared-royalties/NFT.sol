@@ -2,8 +2,8 @@
 pragma solidity 0.8.9;
 
 import "../../ERC721CMetadataInitializable.sol";
-import "@limitbreak/creator-token-contracts/contracts/minting/AirdropMint.sol";
-import "@limitbreak/creator-token-contracts/contracts/programmable-royalties/MinterCreatorSharedRoyalties.sol";
+import "@limitbreak/creator-token-standards/minting/AirdropMint.sol";
+import "@limitbreak/creator-token-standards/programmable-royalties/MinterCreatorSharedRoyalties.sol";
 
 contract NFT is 
     ERC721CMetadataInitializable, 

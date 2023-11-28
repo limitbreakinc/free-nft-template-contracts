@@ -2,8 +2,8 @@
 pragma solidity 0.8.9;
 
 import "../../AdventureERC721CMetadataInitializable.sol";
-import "@limitbreak/creator-token-contracts/contracts/minting/AirdropMint.sol";
-import "@limitbreak/creator-token-contracts/contracts/programmable-royalties/ImmutableMinterRoyalties.sol";
+import "@limitbreak/creator-token-standards/minting/AirdropMint.sol";
+import "@limitbreak/creator-token-standards/programmable-royalties/ImmutableMinterRoyalties.sol";
 
 contract NFT is 
     AdventureERC721CMetadataInitializable, 

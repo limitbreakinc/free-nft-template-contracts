@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.9;
 
-import "@limitbreak/creator-token-contracts/contracts/access/OwnableBasic.sol";
-import "@limitbreak/creator-token-contracts/contracts/erc721c/ERC721C.sol";
-import "@limitbreak/creator-token-contracts/contracts/token/erc721/MetadataURI.sol";
+import "@limitbreak/creator-token-standards/access/OwnableBasic.sol";
+import "@limitbreak/creator-token-standards/erc721c/ERC721C.sol";
+import "@limitbreak/creator-token-standards/token/erc721/MetadataURI.sol";
 
 abstract contract ERC721CMetadata is 
     OwnableBasic, 
