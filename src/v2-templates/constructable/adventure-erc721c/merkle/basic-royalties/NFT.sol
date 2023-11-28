@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.9;
+pragma solidity 0.8.19;
 
 import "../../AdventureERC721CMetadata.sol";
 import "@limitbreak/creator-token-standards/minting/MerkleWhitelistMint.sol";

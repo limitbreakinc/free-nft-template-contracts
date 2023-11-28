@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.9;
+pragma solidity 0.8.19;
 
 import "@limitbreak/creator-token-standards/access/OwnableBasic.sol";
 import "@limitbreak/creator-token-standards/erc721c/v2/ERC721C.sol";
