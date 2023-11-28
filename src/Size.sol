@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.9;
+pragma solidity 0.8.19;
 
 import { NFT as V1_Cloneable_AdventureFreeNFT_Airdrop_BasicRoyalties } from "./v1-templates/cloneable/adventure-erc721c/airdrop/basic-royalties/NFT.sol";
 import { NFT as V1_Cloneable_AdventureFreeNFT_Airdrop_ImmutableMinterRoyalties} from "./v1-templates/cloneable/adventure-erc721c/airdrop/immutable-minter-royalties/NFT.sol";
