@@ -133,3 +133,5 @@ dist
 # foundry
 cache/
 forge-cache/
+
+.DS_Store
