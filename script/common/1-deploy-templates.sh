@@ -133,7 +133,7 @@ case $yn in
     exit 1;;
 esac
 
-forge script script/common/DeployTemplatesV2.s.sol:DeployTemplatesV2 \
+forge script script/common/DeployTemplates.s.sol:DeployTemplates \
   --gas-price $GAS_PRICE \
   --priority-gas-price $PRIORITY_GAS_PRICE \
   --rpc-url $RPC_URL \
