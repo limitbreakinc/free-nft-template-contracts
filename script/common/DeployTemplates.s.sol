@@ -21,7 +21,7 @@ import { NFT as Cloneable_AdventureFreeNFT_Merkle_ImmutableMinterRoyalties} from
 import { NFT as Cloneable_AdventureFreeNFT_Merkle_MutableMinterRoyalties} from "src/templates/cloneable/adventure-erc721c/merkle/mutable-minter-royalties/NFT.sol";
 import { NFT as Cloneable_AdventureFreeNFT_Merkle_SharedRoyalties} from "src/templates/cloneable/adventure-erc721c/merkle/shared-royalties/NFT.sol";
 
-contract DeployTemplatesV2 is Script {
+contract DeployTemplates is Script {
     function run() public {
         uint256 deployerPrivateKey = vm.envUint("DEPLOYER_KEY");
         
