@@ -146,6 +146,7 @@ case $yn in
 esac
 
 forge script script/common/DeployTemplates.s.sol:DeployTemplates \
+  --evm-version cancun \
   --gas-price $GAS_PRICE \
   --priority-gas-price $PRIORITY_GAS_PRICE \
   --rpc-url $RPC_URL \
