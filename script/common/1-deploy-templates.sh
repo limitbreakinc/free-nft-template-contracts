@@ -55,6 +55,12 @@ set_rpc_url() {
         11155111) RPC_URL=$RPC_URL_SEPOLIA ;;
         2863311531) RPC_URL=$RPC_URL_ANCIENT8 ;;
         13472) RPC_URL=$RPC_URL_IMMUTABLE_TESTNET ;;
+        11155420) RPC_URL=$RPC_URL_SEPOLIA_OPTIMISM ;;
+        84532) RPC_URL=$RPC_URL_SEPOLIA_BASE ;;
+        421614) RPC_URL=$RPC_URL_SEPOLIA_ARBITRUM ;;
+        80002) RPC_URL=$RPC_URL_AMOY_POLYGON ;;
+        97) RPC_URL=$RPC_URL_BSC_TESTNET ;;
+        43113) RPC_URL=$RPC_URL_FUJI_AVALANCHE ;;
         *) echo "Unsupported chain id"; exit 1 ;;
     esac
 
@@ -87,6 +93,12 @@ set_etherscan_api_key() {
       11155111) ETHERSCAN_API_KEY=$VERIFICATION_API_KEY_ETHEREUM ;;
       2863311531) echo "Unsupported chain id"; exit 1 ;; # Ancient 8 Testnet
       13472) echo "Unsupported chain id"; exit 1 ;; # Immutable X Testnet
+      11155420) ETHERSCAN_API_KEY=$VERIFICATION_API_KEY_OPTIMISM ;;
+      84532) ETHERSCAN_API_KEY=$VERIFICATION_API_KEY_BASE ;;
+      421614) ETHERSCAN_API_KEY=$VERIFICATION_API_KEY_ARBITRUM ;;
+      80002) ETHERSCAN_API_KEY=$VERIFICATION_API_KEY_POLYGON ;;
+      97) ETHERSCAN_API_KEY=$VERIFICATION_API_KEY_BSC ;;
+      43113) ETHERSCAN_API_KEY=$VERIFICATION_API_KEY_ETHEREUM ;; #Avalanche C-Chain
       *) echo "Unsupported chain id"; exit 1 ;;
   esac
 
@@ -133,7 +145,8 @@ case $yn in
     exit 1;;
 esac
 
-forge script script/common/DeployTemplatesV2.s.sol:DeployTemplatesV2 \
+forge script script/common/DeployTemplates.s.sol:DeployTemplates \
+  --evm-version cancun \
   --gas-price $GAS_PRICE \
   --priority-gas-price $PRIORITY_GAS_PRICE \
   --rpc-url $RPC_URL \

@@ -92,52 +92,52 @@ case $yn in
         exit 1;;
 esac
 
-forge create src/v2-templates/cloneable/erc721c/airdrop/basic-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/erc721c/airdrop/basic-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 25000 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE}
-forge create src/v2-templates/cloneable/erc721c/airdrop/immutable-minter-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/erc721c/airdrop/immutable-minter-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 25000 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} 
-forge create src/v2-templates/cloneable/erc721c/airdrop/mutable-minter-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/erc721c/airdrop/mutable-minter-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 25000 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} 
-forge create src/v2-templates/cloneable/erc721c/airdrop/shared-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/erc721c/airdrop/shared-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 50000 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} 
-forge create src/v2-templates/cloneable/erc721c/merkle/basic-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/erc721c/merkle/basic-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 50000 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} 
-forge create src/v2-templates/cloneable/erc721c/merkle/immutable-minter-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/erc721c/merkle/immutable-minter-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 50000 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} 
-forge create src/v2-templates/cloneable/erc721c/merkle/mutable-minter-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/erc721c/merkle/mutable-minter-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 50000 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} 
-forge create src/v2-templates/cloneable/erc721c/merkle/shared-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/erc721c/merkle/shared-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 50000 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE}
 
-forge create src/v2-templates/cloneable/adventure-erc721c/airdrop/basic-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/adventure-erc721c/airdrop/basic-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 18000 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} 
-forge create src/v2-templates/cloneable/adventure-erc721c/airdrop/immutable-minter-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/adventure-erc721c/airdrop/immutable-minter-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 22000 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} 
-forge create src/v2-templates/cloneable/adventure-erc721c/airdrop/mutable-minter-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/adventure-erc721c/airdrop/mutable-minter-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 13000 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} 
-forge create src/v2-templates/cloneable/adventure-erc721c/airdrop/shared-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/adventure-erc721c/airdrop/shared-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 800 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} #Fix this
-forge create src/v2-templates/cloneable/adventure-erc721c/merkle/basic-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/adventure-erc721c/merkle/basic-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 2500 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} 
-forge create src/v2-templates/cloneable/adventure-erc721c/merkle/immutable-minter-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/adventure-erc721c/merkle/immutable-minter-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 6000 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} 
-forge create src/v2-templates/cloneable/adventure-erc721c/merkle/mutable-minter-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/adventure-erc721c/merkle/mutable-minter-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 2000 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} 
-forge create src/v2-templates/cloneable/adventure-erc721c/merkle/shared-royalties/NFT.sol:NFT \
+forge create src/templates/cloneable/adventure-erc721c/merkle/shared-royalties/NFT.sol:NFT \
     --optimize --optimizer-runs 800 --private-key $DEPLOYER_KEY --rpc-url $RPC_URL \
     --gas-price ${GAS_PRICE} --priority-gas-price ${PRIORITY_GAS_PRICE} 
